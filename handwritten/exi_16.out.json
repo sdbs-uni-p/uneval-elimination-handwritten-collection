@@ -1,0 +1,844 @@
+{
+    "$defs" : {
+        "exEPtestAD" : {
+            "prefixItems" : [
+                {
+                    "type" : "string"
+                },
+                true,
+                true,
+                {
+                    "type" : "integer"
+                }
+            ]
+        },
+        "exEPtestBD" : {
+            "prefixItems" : [
+                true,
+                {
+                    "type" : "integer"
+                },
+                true,
+                {
+                    "type" : "integer"
+                }
+            ]
+        },
+        "exEPtestABD" : {
+            "allOf" : [
+                {
+                    "prefixItems" : [
+                        {
+                            "type" : "string"
+                        },
+                        {
+                            "type" : "integer"
+                        }
+                    ]
+                },
+                {
+                    "prefixItems" : [
+                        true,
+                        true,
+                        true,
+                        {
+                            "type" : "integer"
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtestAB" : {
+            "prefixItems" : [
+                {
+                    "type" : "string"
+                },
+                {
+                    "type" : "integer"
+                }
+            ]
+        },
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "allOf" : [
+                                                        {
+                                                            "$ref" : "#/$defs/exEPtestAB"
+                                                        },
+                                                        {
+                                                            "not" : {
+                                                                "$ref" : "#/$defs/exEPtestAD"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "allOf" : [
+                                                        {
+                                                            "prefixItems" : [
+                                                                {
+                                                                    "type" : "integer"
+                                                                },
+                                                                {
+                                                                    "type" : "null"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "not" : {
+                                                                "$ref" : "#/$defs/exEPtestABD"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "not" : {
+                                                "allOf" : [
+                                                    {
+                                                        "anyOf" : [
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestAB"
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestBD"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "oneOf" : [
+                                                            {
+                                                                "prefixItems" : [
+                                                                    {
+                                                                        "type" : "null"
+                                                                    },
+                                                                    {
+                                                                        "type" : "boolean"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestABD"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "object",
+                                        "additionalProperties" : {
+                                            "type" : "integer"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "allOf" : [
+                                                        {
+                                                            "$ref" : "#/$defs/exEPtestAB"
+                                                        },
+                                                        {
+                                                            "not" : {
+                                                                "$ref" : "#/$defs/exEPtestAD"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "allOf" : [
+                                                        {
+                                                            "not" : {
+                                                                "prefixItems" : [
+                                                                    {
+                                                                        "type" : "integer"
+                                                                    },
+                                                                    {
+                                                                        "type" : "null"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "$ref" : "#/$defs/exEPtestABD"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "not" : {
+                                                "allOf" : [
+                                                    {
+                                                        "anyOf" : [
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestAB"
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestBD"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "oneOf" : [
+                                                            {
+                                                                "prefixItems" : [
+                                                                    {
+                                                                        "type" : "null"
+                                                                    },
+                                                                    {
+                                                                        "type" : "boolean"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestABD"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "object",
+                                        "additionalProperties" : {
+                                            "type" : "integer"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "allOf" : [
+                                                        {
+                                                            "not" : {
+                                                                "$ref" : "#/$defs/exEPtestAB"
+                                                            }
+                                                        },
+                                                        {
+                                                            "$ref" : "#/$defs/exEPtestAD"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "allOf" : [
+                                                        {
+                                                            "prefixItems" : [
+                                                                {
+                                                                    "type" : "integer"
+                                                                },
+                                                                {
+                                                                    "type" : "null"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "not" : {
+                                                                "$ref" : "#/$defs/exEPtestABD"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "not" : {
+                                                "allOf" : [
+                                                    {
+                                                        "anyOf" : [
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestAB"
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestBD"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "oneOf" : [
+                                                            {
+                                                                "prefixItems" : [
+                                                                    {
+                                                                        "type" : "null"
+                                                                    },
+                                                                    {
+                                                                        "type" : "boolean"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestABD"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "object",
+                                        "additionalProperties" : {
+                                            "type" : "integer"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "allOf" : [
+                                                        {
+                                                            "not" : {
+                                                                "$ref" : "#/$defs/exEPtestAB"
+                                                            }
+                                                        },
+                                                        {
+                                                            "$ref" : "#/$defs/exEPtestAD"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "allOf" : [
+                                                        {
+                                                            "not" : {
+                                                                "prefixItems" : [
+                                                                    {
+                                                                        "type" : "integer"
+                                                                    },
+                                                                    {
+                                                                        "type" : "null"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "$ref" : "#/$defs/exEPtestABD"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "not" : {
+                                                "allOf" : [
+                                                    {
+                                                        "anyOf" : [
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestAB"
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestBD"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "oneOf" : [
+                                                            {
+                                                                "prefixItems" : [
+                                                                    {
+                                                                        "type" : "null"
+                                                                    },
+                                                                    {
+                                                                        "type" : "boolean"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestABD"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "object",
+                                        "additionalProperties" : {
+                                            "type" : "integer"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "not" : {
+                                                "allOf" : [
+                                                    {
+                                                        "oneOf" : [
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestAB"
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestAD"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "oneOf" : [
+                                                            {
+                                                                "prefixItems" : [
+                                                                    {
+                                                                        "type" : "integer"
+                                                                    },
+                                                                    {
+                                                                        "type" : "null"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestABD"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestAB"
+                                                },
+                                                {
+                                                    "allOf" : [
+                                                        {
+                                                            "prefixItems" : [
+                                                                {
+                                                                    "type" : "null"
+                                                                },
+                                                                {
+                                                                    "type" : "boolean"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "not" : {
+                                                                "$ref" : "#/$defs/exEPtestABD"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "object",
+                                        "additionalProperties" : {
+                                            "type" : "integer"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "not" : {
+                                                "allOf" : [
+                                                    {
+                                                        "oneOf" : [
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestAB"
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestAD"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "oneOf" : [
+                                                            {
+                                                                "prefixItems" : [
+                                                                    {
+                                                                        "type" : "integer"
+                                                                    },
+                                                                    {
+                                                                        "type" : "null"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestABD"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestAB"
+                                                },
+                                                {
+                                                    "allOf" : [
+                                                        {
+                                                            "not" : {
+                                                                "prefixItems" : [
+                                                                    {
+                                                                        "type" : "null"
+                                                                    },
+                                                                    {
+                                                                        "type" : "boolean"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "$ref" : "#/$defs/exEPtestABD"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "object",
+                                        "additionalProperties" : {
+                                            "type" : "integer"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "not" : {
+                                                "allOf" : [
+                                                    {
+                                                        "oneOf" : [
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestAB"
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestAD"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "oneOf" : [
+                                                            {
+                                                                "prefixItems" : [
+                                                                    {
+                                                                        "type" : "integer"
+                                                                    },
+                                                                    {
+                                                                        "type" : "null"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestABD"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestBD"
+                                                },
+                                                {
+                                                    "allOf" : [
+                                                        {
+                                                            "prefixItems" : [
+                                                                {
+                                                                    "type" : "null"
+                                                                },
+                                                                {
+                                                                    "type" : "boolean"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "not" : {
+                                                                "$ref" : "#/$defs/exEPtestABD"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "object",
+                                        "additionalProperties" : {
+                                            "type" : "integer"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "not" : {
+                                                "allOf" : [
+                                                    {
+                                                        "oneOf" : [
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestAB"
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestAD"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "oneOf" : [
+                                                            {
+                                                                "prefixItems" : [
+                                                                    {
+                                                                        "type" : "integer"
+                                                                    },
+                                                                    {
+                                                                        "type" : "null"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "$ref" : "#/$defs/exEPtestABD"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestBD"
+                                                },
+                                                {
+                                                    "allOf" : [
+                                                        {
+                                                            "not" : {
+                                                                "prefixItems" : [
+                                                                    {
+                                                                        "type" : "null"
+                                                                    },
+                                                                    {
+                                                                        "type" : "boolean"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "$ref" : "#/$defs/exEPtestABD"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "object",
+                                        "additionalProperties" : {
+                                            "type" : "integer"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_1"
+}

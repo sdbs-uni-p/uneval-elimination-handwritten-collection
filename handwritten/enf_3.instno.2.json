@@ -1,0 +1,5 @@
+[ [true, true, true, true],
+  [ "a", [1] ],
+  { "a":1, "b":"bb", "c":"cc", "z": {} },
+  { "a":true, "b":false, "z": true }
+]

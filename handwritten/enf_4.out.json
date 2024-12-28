@@ -1,0 +1,657 @@
+{
+    "$defs" : {
+        "modern_1" : {
+            "allOf" : [
+                {
+                    "anyOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "type" : "array",
+                                            "not" : {
+                                                "$ref" : "#/$defs/evalI_S"
+                                            }
+                                        },
+                                        {
+                                            "$ref" : "#/$defs/modern_2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "type" : "array",
+                                            "not" : {
+                                                "$ref" : "#/$defs/evalI_S"
+                                            }
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : 1
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "type" : "array",
+                                            "not" : {
+                                                "$ref" : "#/$defs/evalI_S"
+                                            }
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : "a"
+                                                },
+                                                {
+                                                    "const" : 2
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/evalIN"
+                                        },
+                                        {
+                                            "$ref" : "#/$defs/modern_2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/evalIN"
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : 1
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/evalIN"
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : "a"
+                                                },
+                                                {
+                                                    "const" : 2
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/evalI_S"
+                                        },
+                                        {
+                                            "$ref" : "#/$defs/modern_2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/evalI_S"
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : 1
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/evalI_S"
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : "a"
+                                                },
+                                                {
+                                                    "const" : 2
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "anyOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "type" : "array",
+                                            "not" : {
+                                                "$ref" : "#/$defs/evalI_S"
+                                            }
+                                        },
+                                        {
+                                            "$ref" : "#/$defs/modern_2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "items" : {
+                                        "anyOf" : [
+                                            true,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "type" : "array",
+                                            "not" : {
+                                                "$ref" : "#/$defs/evalI_S"
+                                            }
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : 1
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "type" : "array",
+                                            "not" : {
+                                                "$ref" : "#/$defs/evalI_S"
+                                            }
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : "a"
+                                                },
+                                                {
+                                                    "const" : 2
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/evalIN"
+                                        },
+                                        {
+                                            "$ref" : "#/$defs/modern_2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "items" : {
+                                        "anyOf" : [
+                                            true,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/evalIN"
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : 1
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/evalIN"
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : "a"
+                                                },
+                                                {
+                                                    "const" : 2
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/evalI_S"
+                                        },
+                                        {
+                                            "$ref" : "#/$defs/modern_2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "items" : {
+                                        "anyOf" : [
+                                            true,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/evalI_S"
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : 1
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        true,
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/evalI_S"
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : "a"
+                                                },
+                                                {
+                                                    "const" : 2
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        true,
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "evalaIbS" : {
+            "type" : "object",
+            "properties" : {
+                "a" : {
+                    "type" : "integer"
+                },
+                "b" : {
+                    "type" : "string"
+                }
+            },
+            "required" : [
+                "a",
+                "b"
+            ]
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "type" : "array"
+                        },
+                        {
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "boolean"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "evalI_S" : {
+            "type" : "array",
+            "allOf" : [
+                {
+                    "prefixItems" : [
+                        {
+                            "type" : "integer"
+                        }
+                    ]
+                },
+                {
+                    "prefixItems" : [
+                        true,
+                        true,
+                        {
+                            "type" : "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_3" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Testing exEP"
+                        },
+                        {
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/enf1"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "evalIN" : {
+            "type" : "array",
+            "allOf" : [
+                {
+                    "prefixItems" : [
+                        {
+                            "type" : "integer"
+                        }
+                    ]
+                },
+                {
+                    "prefixItems" : [
+                        true,
+                        {
+                            "type" : "null"
+                        }
+                    ]
+                }
+            ]
+        },
+        "evalS_I" : {
+            "type" : "array",
+            "prefixItems" : [
+                {
+                    "type" : "string"
+                },
+                true,
+                {
+                    "type" : "integer"
+                }
+            ]
+        },
+        "enf1" : {
+            "$ref" : "#/$defs/modern_1"
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_3"
+}

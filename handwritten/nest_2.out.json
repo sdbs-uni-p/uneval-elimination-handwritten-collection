@@ -1,0 +1,109 @@
+{
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$defs" : {
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Nesting"
+                                },
+                                {
+                                    "type" : "object"
+                                },
+                                {
+                                    "properties" : {
+                                        "j" : {
+                                            "$ref" : "#"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "patternProperties" : {
+                                "^j$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "string"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Nesting"
+                                },
+                                {
+                                    "type" : "object"
+                                },
+                                {
+                                    "properties" : {
+                                        "k" : {
+                                            "$ref" : "#"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "patternProperties" : {
+                                "^k$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "string"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Nesting"
+                                },
+                                {
+                                    "type" : "object"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "properties" : {
+                                                "j" : {
+                                                    "$ref" : "#"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "properties" : {
+                                                "k" : {
+                                                    "$ref" : "#"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "patternProperties" : {
+                                "^j$" : true,
+                                "^k$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "string"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "$ref" : "#/$defs/modern_1"
+}

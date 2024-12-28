@@ -1,0 +1,12 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEI",
+    "$ref": "#/$defs/exEPtest",
+    "unevaluatedItems" : { "type" : "string"},
+    "$defs" : {
+       "exEPtest" : { "prefixItems" : [
+                          true,
+                          true ]
+                     }
+    }
+}

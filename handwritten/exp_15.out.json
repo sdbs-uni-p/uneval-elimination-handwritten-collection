@@ -1,0 +1,99 @@
+{
+    "$defs" : {
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Testing exEP",
+                            "oneOf" : [
+                                {
+                                    "$ref" : "#/$defs/exEPtest1",
+                                    "not" : {
+                                        "$ref" : "#/$defs/exEPtest2"
+                                    }
+                                },
+                                {
+                                    "properties" : {
+                                        "a" : {
+                                            "type" : "null"
+                                        }
+                                    },
+                                    "patternProperties" : {
+                                        "b" : {
+                                            "type" : "boolean"
+                                        }
+                                    },
+                                    "not" : {
+                                        "allOf" : [
+                                            {
+                                                "properties" : {
+                                                    "c" : {
+                                                        "type" : "boolean"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "patternProperties" : {
+                                                    "d" : {
+                                                        "type" : "null"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "patternProperties" : {
+                                "^a$" : true,
+                                "b" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "object",
+                                "properties" : {
+                                    "c" : {
+                                        "type" : "integer"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtest1" : {
+            "properties" : {
+                "a" : {
+                    "type" : "string"
+                }
+            },
+            "patternProperties" : {
+                "b" : {
+                    "type" : "integer"
+                }
+            }
+        },
+        "exEPtest2" : {
+            "allOf" : [
+                {
+                    "properties" : {
+                        "d" : {
+                            "type" : "integer"
+                        }
+                    }
+                },
+                {
+                    "patternProperties" : {
+                        "c" : {
+                            "type" : "string"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_1"
+}

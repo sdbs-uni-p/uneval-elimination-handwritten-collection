@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "anyOf" : [
+                        { "$ref": "#/$defs/exEPtest1" },
+                        { "$ref": "#/$defs/exEPtest2" },
+                        {  "prefixItems" : [ {"type" : "null"}, {}, {"type" : "boolean"} ]
+                        },
+                        { "allOf" : [
+                             { "prefixItems" : [ {"type" : "boolean"} ] },
+                             { "prefixItems" : [ {}, {}, {"type" : "null"} ] }
+                          ]
+                        }
+                ],
+    "unevaluatedItems" : { "type" : "object", "unevaluatedProperties" : false },
+    "$defs" : {
+       "exEPtest1" : {
+            "prefixItems" : [
+                          {"type" : "string"}, {}, { "type" : "integer"}
+             ],
+             "minItems" : 2
+       },
+       "exEPtest2" : {"allOf" : [
+                        { "prefixItems" : [ {"type" : "integer"} ] },
+                        { "prefixItems" : [ {}, {}, {"type" : "string"} ] }
+                      ]
+       }
+    }
+}

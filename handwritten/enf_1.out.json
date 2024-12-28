@@ -1,0 +1,830 @@
+{
+    "$defs" : {
+        "enf1" : {
+            "$ref" : "#/$defs/modern_1"
+        },
+        "modern_1" : {
+            "allOf" : [
+                {
+                    "anyOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "$ref" : "#/$defs/eval3Its1"
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array",
+                                    "not" : {
+                                        "$ref" : "#/$defs/eval3Its2"
+                                    }
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "$ref" : "#/$defs/evalAB1"
+                                },
+                                {
+                                    "patternProperties" : {
+                                        "^a$" : true,
+                                        "^b$" : true
+                                    },
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array",
+                                    "prefixItems" : [
+                                        {
+                                            "type" : "null"
+                                        },
+                                        true,
+                                        {
+                                            "type" : "boolean"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "$ref" : "#/$defs/modern_2"
+                                },
+                                {
+                                    "patternProperties" : {
+                                        ".*" : true
+                                    },
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array",
+                                    "allOf" : [
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "type" : "boolean"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "prefixItems" : [
+                                                true,
+                                                true,
+                                                {
+                                                    "type" : "null"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "$ref" : "#/$defs/modern_3"
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "a" : {
+                                            "type" : "null"
+                                        },
+                                        "b" : {
+                                            "type" : "null"
+                                        }
+                                    }
+                                },
+                                {
+                                    "patternProperties" : {
+                                        "^a$" : true,
+                                        "^b$" : true
+                                    },
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array",
+                                    "prefixItems" : [
+                                        {
+                                            "const" : "a"
+                                        }
+                                    ],
+                                    "contains" : true
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "object",
+                                    "allOf" : [
+                                        {
+                                            "properties" : {
+                                                "a" : {
+                                                    "type" : "string"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "properties" : {
+                                                "b" : {
+                                                    "type" : "string"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "patternProperties" : {
+                                        "^a$" : true,
+                                        "^b$" : true
+                                    },
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "type" : "array",
+                                            "allOf" : [
+                                                {
+                                                    "prefixItems" : [
+                                                        {
+                                                            "type" : "boolean"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "prefixItems" : [
+                                                        true,
+                                                        true,
+                                                        {
+                                                            "type" : "null"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : "a"
+                                                }
+                                            ],
+                                            "contains" : true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "type" : "null"
+                                                },
+                                                true,
+                                                {
+                                                    "type" : "boolean"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : "a"
+                                                }
+                                            ],
+                                            "contains" : true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/eval3Its1"
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : "a"
+                                                }
+                                            ],
+                                            "contains" : true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "additionalProperties" : {
+                                        "type" : "object",
+                                        "maxProperties" : 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "anyOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "$ref" : "#/$defs/eval3Its1"
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        true,
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array",
+                                    "not" : {
+                                        "$ref" : "#/$defs/eval3Its2"
+                                    }
+                                },
+                                {
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "$ref" : "#/$defs/evalAB1"
+                                },
+                                {
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array",
+                                    "prefixItems" : [
+                                        {
+                                            "type" : "null"
+                                        },
+                                        true,
+                                        {
+                                            "type" : "boolean"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        true,
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "$ref" : "#/$defs/modern_2"
+                                },
+                                {
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array",
+                                    "allOf" : [
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "type" : "boolean"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "prefixItems" : [
+                                                true,
+                                                true,
+                                                {
+                                                    "type" : "null"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        true,
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "$ref" : "#/$defs/modern_3"
+                                },
+                                {
+                                    "items" : {
+                                        "anyOf" : [
+                                            true,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "object",
+                                    "properties" : {
+                                        "a" : {
+                                            "type" : "null"
+                                        },
+                                        "b" : {
+                                            "type" : "null"
+                                        }
+                                    }
+                                },
+                                {
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array",
+                                    "prefixItems" : [
+                                        {
+                                            "const" : "a"
+                                        }
+                                    ],
+                                    "contains" : true
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            true,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "object",
+                                    "allOf" : [
+                                        {
+                                            "properties" : {
+                                                "a" : {
+                                                    "type" : "string"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "properties" : {
+                                                "b" : {
+                                                    "type" : "string"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "items" : {
+                                        "anyOf" : [
+                                            false,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "type" : "array",
+                                            "allOf" : [
+                                                {
+                                                    "prefixItems" : [
+                                                        {
+                                                            "type" : "boolean"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "prefixItems" : [
+                                                        true,
+                                                        true,
+                                                        {
+                                                            "type" : "null"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : "a"
+                                                }
+                                            ],
+                                            "contains" : true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        true,
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            true,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "type" : "null"
+                                                },
+                                                true,
+                                                {
+                                                    "type" : "boolean"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : "a"
+                                                }
+                                            ],
+                                            "contains" : true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        true,
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            true,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "allOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/eval3Its1"
+                                        },
+                                        {
+                                            "type" : "array",
+                                            "prefixItems" : [
+                                                {
+                                                    "const" : "a"
+                                                }
+                                            ],
+                                            "contains" : true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        true,
+                                        true
+                                    ],
+                                    "items" : {
+                                        "anyOf" : [
+                                            true,
+                                            {
+                                                "type" : "array",
+                                                "maxItems" : 0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "eval3Its1" : {
+            "type" : "array",
+            "allOf" : [
+                {
+                    "prefixItems" : [
+                        {
+                            "type" : "integer"
+                        }
+                    ]
+                },
+                {
+                    "prefixItems" : [
+                        true,
+                        true,
+                        {
+                            "type" : "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        "eval3Its2" : {
+            "type" : "array",
+            "prefixItems" : [
+                {
+                    "type" : "string"
+                },
+                true,
+                {
+                    "type" : "integer"
+                }
+            ]
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "type" : "object"
+                        },
+                        {
+                            "additionalProperties" : {
+                                "type" : "boolean"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_3" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "type" : "array"
+                        },
+                        {
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "boolean"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "evalAB1" : {
+            "type" : "object",
+            "properties" : {
+                "a" : {
+                    "type" : "integer"
+                },
+                "b" : {
+                    "type" : "string"
+                }
+            },
+            "required" : [
+                "a",
+                "b"
+            ]
+        },
+        "modern_4" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Testing exEP"
+                        },
+                        {
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/enf1"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_4"
+}

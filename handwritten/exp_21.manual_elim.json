@@ -1,0 +1,57 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "type" : "object",
+    "anyOf" : [
+             { "allOf" : [
+                   { "anyOf" : [
+                         { "$ref": "#/$defs/exEPtestAB" },
+                         { "$ref": "#/$defs/exEPtestAD" }
+                     ]
+                   },
+                   { "anyOf" : [
+                         {  "patternProperties" : { "b" : {"type" : "integer"}},
+                            "properties" : { "d" : {"type" : "null"}}
+                         },
+                         { "$ref": "#/$defs/exEPtestABD" }
+                     ]
+                   }
+               ]
+             },
+             { "allOf" : [
+                   { "oneOf" : [
+                         { "$ref": "#/$defs/exEPtestAB" },
+                         { "$ref": "#/$defs/exEPtestBD" }
+                     ]
+                   },
+                   { "anyOf" : [
+                         { "properties" : { "a" : {"type" : "null"}, "d" : {"type" : "boolean"} } },
+                         { "$ref": "#/$defs/exEPtestABD" }
+                     ]
+                   }
+               ]
+             }
+    ],
+    "additionalProperties" : { "type" : "object", "properties" : { "c" : {"$ref": "#"} }},
+    "properties" : { "a" : {}, "d" : {} },
+    "patternProperties" : { "b" : {} },
+    "$defs" : {
+       "exEPtestAB" : {
+             "properties" : { "a" : {"type" : "string"} },
+             "patternProperties" : { "b" : {"type" : "integer"} }
+        },
+      "exEPtestAD" : {
+            "properties" : { "a" : {"type" : "string"},
+                             "d" : {"type" : "integer"} }
+       },
+      "exEPtestABD" : {
+            "properties" : { "a" : {"type" : "string"},
+                             "d" : {"type" : "integer"} },
+            "patternProperties" : { "b" : {"type" : "integer"} }
+       },
+      "exEPtestBD" : {
+            "properties" : { "d" : {"type" : "string"} },
+            "patternProperties" : { "b" : {"type" : "integer"} }
+       }
+    }
+}

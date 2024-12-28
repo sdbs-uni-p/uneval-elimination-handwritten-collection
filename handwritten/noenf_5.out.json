@@ -1,0 +1,323 @@
+{
+    "$defs" : {
+        "RA1" : {
+            "required" : [
+                "a1"
+            ]
+        },
+        "E12A1" : {
+            "prefixItems" : [
+                {
+                    "$ref" : "#/$defs/RA1"
+                },
+                {
+                    "$ref" : "#/$defs/RA2"
+                }
+            ],
+            "minItems" : 1,
+            "contains" : {
+                "$ref" : "#/$defs/RA1"
+            }
+        },
+        "noenf" : {
+            "$ref" : "#/$defs/modern_1"
+        },
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "$ref" : "#/$defs/E2All"
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    true,
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "$ref" : "#/$defs/E12A1"
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    {
+                                        "$ref" : "#/$defs/RA1"
+                                    },
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "$ref" : "#/$defs/E3A13"
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    {
+                                        "anyOf" : [
+                                            {
+                                                "$ref" : "#/$defs/RA1"
+                                            },
+                                            {
+                                                "$ref" : "#/$defs/RA3"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/E12A1"
+                                        },
+                                        {
+                                            "$ref" : "#/$defs/E3A13"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    {
+                                        "anyOf" : [
+                                            {
+                                                "$ref" : "#/$defs/RA1"
+                                            },
+                                            {
+                                                "anyOf" : [
+                                                    {
+                                                        "$ref" : "#/$defs/RA1"
+                                                    },
+                                                    {
+                                                        "$ref" : "#/$defs/RA3"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/E2All"
+                                        },
+                                        {
+                                            "$ref" : "#/$defs/E12A1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    true,
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/E2All"
+                                        },
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/E12A1"
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/E3A13"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    true,
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "RA2" : {
+            "required" : [
+                "a2"
+            ]
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Testing exEP"
+                        },
+                        {
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/noenf"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "E2All" : {
+            "prefixItems" : [
+                {
+                    "$ref" : "#/$defs/RA2"
+                }
+            ],
+            "minItems" : 1,
+            "contains" : true
+        },
+        "E3A13" : {
+            "prefixItems" : [
+                {
+                    "$ref" : "#/$defs/RA3"
+                }
+            ],
+            "minItems" : 1,
+            "contains" : {
+                "anyOf" : [
+                    {
+                        "$ref" : "#/$defs/RA1"
+                    },
+                    {
+                        "$ref" : "#/$defs/RA3"
+                    }
+                ]
+            }
+        },
+        "RA3" : {
+            "required" : [
+                "a3"
+            ]
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_2"
+}

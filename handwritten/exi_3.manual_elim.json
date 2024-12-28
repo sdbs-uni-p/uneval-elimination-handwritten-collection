@@ -1,0 +1,16 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP: required has no effect",
+    "$ref": "#/$defs/exEPtest",
+    "prefixItems" : [ {}, {} ],
+    "items" : { "type" : "string"},
+    "$defs" : {
+       "exEPtest" : { "prefixItems" : [
+                          true,
+                          true
+                       ],
+                       "minItems" : 1
+       }
+    }
+}
+

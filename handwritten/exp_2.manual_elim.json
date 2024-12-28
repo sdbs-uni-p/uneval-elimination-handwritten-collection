@@ -1,0 +1,14 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "$ref": "#/$defs/exEPtest",
+    "patternProperties" : { "a" : {}, "b" : {}},
+    "additionalProperties" : { "type" : "string"},
+    "$defs" : {
+       "exEPtest" : {
+          "patternProperties" : {
+                          "a" : true,
+                          "b" : false }
+          }
+    }
+}

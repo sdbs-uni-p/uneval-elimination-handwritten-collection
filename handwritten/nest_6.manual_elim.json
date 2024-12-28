@@ -1,0 +1,42 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Nesting",
+    "type" : "array",
+    "oneOf" : [
+                  {  "anyOf" : [ { "prefixItems" : [ { "pattern" : "a" } ],
+                                    "items" : { "const" : "aa" }
+                                  },
+                                  { "prefixItems" : [ {}, { "pattern" : "A" } ],
+                                    "items" : { "const" : "aa" }
+                                  },
+                                  { "prefixItems" : [ { "pattern" : "a" }, { "pattern" : "A" } ],
+                                    "items" : { "const" : "aa" }
+                                  }
+                      ],
+                     "minProperties" : 1
+                    },
+                  {  "anyOf" : [  { "prefixItems" : [ { "pattern" : "b" } ],
+                                     "items" : { "const" : "bb" }
+                                   },
+                                   { "prefixItems" : [ {}, { "pattern" : "B" } ],
+                                     "items" : { "const" : "bb" }
+                                   },
+                                   { "prefixItems" : [ { "pattern" : "b" }, { "pattern" : "B" } ],
+                                     "items" : { "const" : "bb" }
+                                   }
+                       ],
+                       "minProperties" : 1
+                    },
+                  {  "anyOf" : [ { "prefixItems" : [ { "pattern" : "c" } ],
+                                    "items" : { "const" : "cc" }
+                                  },
+                                  { "prefixItems" : [ {}, { "pattern" : "C" } ],
+                                    "items" : { "const" : "cc" }
+                                  },
+                                  { "prefixItems" : [ { "pattern" : "c" }, { "pattern" : "C" } ],
+                                    "items" : { "const" : "cc" }
+                                  }
+                      ]
+                    }
+     ]
+}

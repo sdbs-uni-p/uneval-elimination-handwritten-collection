@@ -1,0 +1,16 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Nesting",
+    "type" : "object",
+    "anyOf" : [ {"properties" : { "j" : { "$ref" : "#" }},
+                 "additionalProperties" : { "type" : "string" }
+                },
+                {"properties" : { "k" : { "$ref" : "#" }},
+                 "additionalProperties" : { "type" : "string" }
+                },
+                {"properties" : { "j" : { "$ref" : "#" },
+                                  "k" : { "$ref" : "#" } },
+                 "additionalProperties" : { "type" : "string" }
+                }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "unevaluatedItems" : { "$ref" : "#/$defs/noenf" },
+    "$defs" : {
+      "T1" : { "required" : ["a1"] },
+      "T2" : { "required" : ["a2"] },
+      "T3" : { "required" : ["a3"] },
+      "noenf" : {
+            "type" : "array",
+            "oneOf" : [
+              { "prefixItems" : [ {"$ref" : "#/$defs/T1"} ],
+                "minItems" : 1,
+                "contains" : {"$ref" : "#/$defs/T1"}
+              },
+              { "prefixItems" : [ {"$ref" : "#/$defs/T2"} ],
+                "minItems" : 1,
+                "contains" : {"$ref" : "#/$defs/T2"}
+              },
+              { "prefixItems" : [ {"$ref" : "#/$defs/T3"} ],
+                "minItems" : 1,
+                "contains" : {"$ref" : "#/$defs/T3"}
+              }
+            ],
+            "unevaluatedItems" : { "additionalProperties" : { "const" : 33 } }
+      }
+    }
+}

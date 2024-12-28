@@ -1,0 +1,440 @@
+{
+    "$defs" : {
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "type" : "object"
+                        },
+                        {
+                            "additionalProperties" : {
+                                "type" : "integer"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtestAD" : {
+            "prefixItems" : [
+                {
+                    "type" : "string"
+                },
+                true,
+                true,
+                {
+                    "type" : "integer"
+                }
+            ]
+        },
+        "exEPtestBD" : {
+            "prefixItems" : [
+                true,
+                {
+                    "type" : "integer"
+                },
+                true,
+                {
+                    "type" : "integer"
+                }
+            ]
+        },
+        "exEPtestABD" : {
+            "allOf" : [
+                {
+                    "prefixItems" : [
+                        {
+                            "type" : "string"
+                        },
+                        {
+                            "type" : "integer"
+                        }
+                    ]
+                },
+                {
+                    "prefixItems" : [
+                        true,
+                        true,
+                        true,
+                        {
+                            "type" : "integer"
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtestAB" : {
+            "prefixItems" : [
+                {
+                    "type" : "string"
+                },
+                {
+                    "type" : "integer"
+                }
+            ]
+        },
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/exEPtestAB"
+                                        },
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "type" : "integer"
+                                                },
+                                                {
+                                                    "type" : "null"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/modern_2"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/exEPtestAB"
+                                        },
+                                        {
+                                            "$ref" : "#/$defs/exEPtestABD"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/modern_2"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/exEPtestAD"
+                                        },
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "type" : "integer"
+                                                },
+                                                {
+                                                    "type" : "null"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/modern_2"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "$ref" : "#/$defs/exEPtestAD"
+                                        },
+                                        {
+                                            "$ref" : "#/$defs/exEPtestABD"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/modern_2"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestAB"
+                                                },
+                                                {
+                                                    "not" : {
+                                                        "$ref" : "#/$defs/exEPtestBD"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "type" : "null"
+                                                },
+                                                {
+                                                    "type" : "integer"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/modern_2"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestAB"
+                                                },
+                                                {
+                                                    "not" : {
+                                                        "$ref" : "#/$defs/exEPtestBD"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "$ref" : "#/$defs/exEPtestABD"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/modern_2"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "not" : {
+                                                        "$ref" : "#/$defs/exEPtestAB"
+                                                    }
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestBD"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "type" : "null"
+                                                },
+                                                {
+                                                    "type" : "integer"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/modern_2"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "not" : {
+                                                        "$ref" : "#/$defs/exEPtestAB"
+                                                    }
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestBD"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "$ref" : "#/$defs/exEPtestABD"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/modern_2"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_1"
+}

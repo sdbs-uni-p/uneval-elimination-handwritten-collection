@@ -1,0 +1,59 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "oneOf" : [
+             { "allOf" : [
+                   { "oneOf" : [
+                         { "$ref": "#/$defs/exEPtestAB",
+                           "unevaluatedProperties" : {"type" : ["string","boolean"]} },
+                         { "unevaluatedProperties" : {"type" : "integer"} }
+                     ]
+                   },
+                   { "oneOf" : [
+                         {  "patternProperties" : { "b" : {"type" : "integer"}},
+                            "properties" : { "d" : {"type" : "null"}}
+                         },
+                         {  "properties" : { "d" : {"type" : "boolean"}}}
+                     ]
+                   }
+               ]
+             },
+             { "allOf" : [
+                   { "anyOf" : [
+                         { "$ref": "#/$defs/exEPtestAB" ,
+                           "unevaluatedProperties" : {"type" : "string"} },
+                         { "$ref": "#/$defs/exEPtestBD" ,
+                           "unevaluatedProperties" : {"type" : "string"} },
+                         { "unevaluatedProperties" : {"type" : "integer"} }
+                     ]
+                   },
+                   { "oneOf" : [
+                         { "properties" : { "a" : {"type" : "null"}, "d" : {"type" : "boolean"} } },
+                         { "$ref": "#/$defs/exEPtestABD" },
+                         { "unevaluatedProperties" : {"type" : "integer"} }
+                     ]
+                   }
+               ]
+             }
+    ],
+    "unevaluatedProperties" : { "type" : "object", "properties" : { "c" : {"type" : "integer"} }},
+    "$defs" : {
+       "exEPtestAB" : {
+             "properties" : { "a" : {"type" : ["string","integer"]} },
+             "patternProperties" : { "b" : {"type" : "integer"} }
+        },
+      "exEPtestAD" : {
+            "properties" : { "a" : {"type" : "string"},
+                             "d" : {"type" : "integer"} }
+       },
+      "exEPtestABD" : {
+            "properties" : { "a" : {"type" : ["string","integer"]},
+                             "d" : {"type" : "integer"} },
+            "patternProperties" : { "b" : {"type" : "integer"} }
+       },
+      "exEPtestBD" : {
+            "properties" : { "d" : {"type" : "string"} },
+            "patternProperties" : { "b" : {"type" : "integer"} }
+       }
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "anyOf" : [
+             { "allOf" : [
+                   { "anyOf" : [
+                         { "$ref": "#/$defs/exEPtestAB" },
+                         { "$ref": "#/$defs/exEPtestAD" }
+                     ]
+                   },
+                   { "anyOf" : [
+                         {  "prefixItems" : [ {"type" : "integer"}, {}, {}, {"type" : "null"} ],
+                            "items" : {"type" : "string"}
+                         },
+                         { "$ref": "#/$defs/exEPtestABD",
+                           "prefixItems" : [ {}, {}, {}, {} ],
+                           "items" : {"type" : "string"} },
+                         { "items" : {"type" : "integer"} }
+                    ]
+                   }
+               ]
+             },
+             { "allOf" : [
+                   { "anyOf" : [
+                         { "$ref": "#/$defs/exEPtestAB" },
+                         { "$ref": "#/$defs/exEPtestBD" }
+                     ]
+                   },
+                   { "oneOf" : [
+                         { "prefixItems" : [ {"type" : "null"}, {}, {}, {"type" : "integer"} ],
+                           "items" : {"type" : "string"} },
+                         { "$ref": "#/$defs/exEPtestABD",
+                           "prefixItems" : [ {}, {}, {}, {} ],
+                           "items" : {"type" : "string"} },
+                         { "items" : {"type" : "integer"} }
+                     ]
+                   }
+               ]
+             }
+    ],
+    "$defs" : {
+        "exEPtestAB" : {
+              "prefixItems" : [ {"type" : "string"}, {"type" : "integer"} ]
+         },
+       "exEPtestAD" : {
+             "prefixItems" : [ {"type" : "string"}, {}, {}, {"type" : "integer"} ]
+        },
+       "exEPtestABD" : {
+             "allOf" : [ { "prefixItems" : [ {"type" : "string"}, {"type" : "integer"} ] },
+                         { "prefixItems" : [ {}, {}, {}, {"type" : "integer"} ] }
+             ]
+        },
+       "exEPtestBD" : {
+             "prefixItems" : [ {}, {"type" : "integer"}, {}, {"type" : "integer"} ]
+        }
+     }
+}

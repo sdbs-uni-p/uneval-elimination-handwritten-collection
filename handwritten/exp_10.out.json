@@ -1,0 +1,75 @@
+{
+    "$defs" : {
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "patternProperties" : {
+                                "b" : {
+                                    "type" : "integer"
+                                }
+                            }
+                        },
+                        {
+                            "patternProperties" : {
+                                "b" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "string"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Testing exEP",
+                            "$ref" : "#/$defs/exEPtest3"
+                        },
+                        {
+                            "patternProperties" : {
+                                ".*" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "object",
+                                "properties" : {
+                                    "c" : true
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtest1" : {
+            "properties" : {
+                "a" : {
+                    "type" : "string"
+                }
+            },
+            "additionalProperties" : {
+                "type" : "integer"
+            }
+        },
+        "exEPtest2" : {
+            "$ref" : "#/$defs/modern_1"
+        },
+        "exEPtest3" : {
+            "oneOf" : [
+                {
+                    "$ref" : "#/$defs/exEPtest1"
+                },
+                {
+                    "$ref" : "#/$defs/exEPtest2"
+                }
+            ]
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_2"
+}

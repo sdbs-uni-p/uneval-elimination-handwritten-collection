@@ -1,0 +1,114 @@
+{
+    "$defs" : {
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "prefixItems" : [
+                                {
+                                    "type" : "integer"
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    true
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "prefixItems" : [
+                                {
+                                    "type" : "string"
+                                },
+                                {
+                                    "type" : "string"
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    true
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtest1" : {
+            "$ref" : "#/$defs/modern_1"
+        },
+        "exEPtest2" : {
+            "$ref" : "#/$defs/modern_2"
+        },
+        "modern_3" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Testing exEP",
+                            "$ref" : "#/$defs/exEPtest3"
+                        },
+                        {
+                            "items" : {
+                                "anyOf" : [
+                                    true,
+                                    {
+                                        "$ref" : "#/$defs/modern_4"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtest3" : {
+            "anyOf" : [
+                {
+                    "$ref" : "#/$defs/exEPtest1"
+                },
+                {
+                    "$ref" : "#/$defs/exEPtest2"
+                }
+            ]
+        },
+        "modern_4" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "type" : "object"
+                        },
+                        {
+                            "additionalProperties" : false
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_3"
+}

@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Testing exEP",
+  "allOf" : [ { "properties" : {
+                    "A17" :  { "$ref": "#/$defs/any17" },
+                    "A18" :  { "$ref": "#/$defs/any18" }
+                 }
+               }
+  ],
+  "properties" : { "A17" : {}, "A18" : {} },
+  "additionalProperties" : { "type" : "object", "properties" : { "c" : { "not" : {"$ref": "#/$defs/any17"} }}},
+  "$defs" : {
+       "exEPtestAB" : {
+             "properties" : { "a" : {"type" : "string"} },
+             "patternProperties" : { "b" : {"type" : "integer"} }
+        },
+      "exEPtestAD" : {
+            "properties" : { "a" : {"type" : "string"},
+                             "d" : {"type" : "integer"} }
+       },
+      "exEPtestABD" : {
+            "properties" : { "a" : {"type" : "string"},
+                             "d" : {"type" : "integer"} },
+            "patternProperties" : { "b" : {"type" : "integer"} }
+       },
+      "exEPtestBD" : {
+            "properties" : { "d" : {"type" : "string"} },
+            "patternProperties" : { "b" : {"type" : "integer"} }
+      },
+      "any17" :  {
+           "anyOf" : [
+                        { "allOf" : [
+                              { "anyOf" : [
+                                    { "$ref": "#/$defs/exEPtestAB" },
+                                    { "$ref": "#/$defs/exEPtestAD" }
+                                ]
+                              },
+                              { "anyOf" : [
+                                    {  "patternProperties" : { "b" : {"type" : "integer"}},
+                                       "properties" : { "d" : {"type" : "null"}}
+                                    },
+                                    { "$ref": "#/$defs/exEPtestABD" }
+                                ]
+                              }
+                          ]
+                        },
+                        { "allOf" : [
+                              { "oneOf" : [
+                                    { "$ref": "#/$defs/exEPtestAB" },
+                                    { "$ref": "#/$defs/exEPtestBD" }
+                                ]
+                              },
+                              { "anyOf" : [
+                                    { "properties" : { "a" : {"type" : "null"}, "d" : {"type" : "boolean"} } },
+                                    { "$ref": "#/$defs/exEPtestABD" }
+                                ]
+                              }
+                          ]
+                        }
+           ],
+           "additionalProperties" : { "type" : "object", "properties" : { "c" : {"type" : "integer"} }},
+           "properties" : { "a" : {}, "d" : {} },
+           "patternProperties" : { "b" : {} }
+    },
+      "any18" : {
+         "oneOf" : [
+                 { "anyOf" : [
+                       { "allOf" : [
+                             { "$ref": "#/$defs/exEPtestAB" },
+                             { "$ref": "#/$defs/exEPtestAD" }
+                         ]
+                       },
+                       { "anyOf" : [
+                             {  "patternProperties" : { "b" : {"type" : "integer"}},
+                                "properties" : { "a" : {"type" : "integer"}, "d" : {"type" : "null"}}
+                             },
+                             { "$ref": "#/$defs/exEPtestABD" }
+                         ]
+                       }
+                   ]
+                 },
+                 { "anyOf" : [
+                       { "allOf" : [
+                             { "$ref": "#/$defs/exEPtestAB" },
+                             { "$ref": "#/$defs/exEPtestBD" }
+                         ]
+                       },
+                       { "oneOf" : [
+                             {  "properties" : { "a" : {"type" : ["null","string"]},
+                                                 "d" : {"type" : ["null","integer"]} },
+                                "patternProperties" : { "b" : {"type" : ["null","integer"]}}
+                             },
+                             {  "$ref": "#/$defs/exEPtestABD" }
+                         ]
+                       }
+                   ]
+                 }
+         ],
+         "additionalProperties" : { "type" : "object", "properties" : { "c" : {"type" : "integer"} }},
+         "properties" : { "a" : {}, "d" : {} },
+         "patternProperties" : { "b" : {} }
+     }
+  }
+}

@@ -1,0 +1,62 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "items" : { "$ref" : "#/$defs/noenf" },
+    "$defs" : {
+      "T1" : { "required" : ["a1"] },
+      "T2" : { "required" : ["a2"] },
+      "T3" : { "required" : ["a3"] },
+      "A1" : { "prefixItems" : [ {"$ref" : "#/$defs/T1"} ],
+                  "minItems" : 1,
+                  "contains" : {"$ref" : "#/$defs/T1"}
+      },
+      "A2" : { "prefixItems" : [ {"$ref" : "#/$defs/T2"} ],
+                  "minItems" : 1,
+                  "contains" : {"$ref" : "#/$defs/T2"}
+      },
+      "A3" : { "prefixItems" : [ {"$ref" : "#/$defs/T3"} ],
+                  "minItems" : 1,
+                  "contains" : {"$ref" : "#/$defs/T3"}
+      },
+      "noenf" : {
+            "type" : "array",
+            "anyOf" : [
+                {  "$ref" : "#/$defs/A1",
+                   "prefixItems" : [ {} ],
+                   "items" : { "anyOf" : [ {"$ref" : "#/$defs/T1"},
+                                           { "additionalProperties" : { "const" : 33 } }
+                                ]
+                   }
+                },
+                {  "$ref" : "#/$defs/A2",
+                   "prefixItems" : [ {} ],
+                   "items" : { "anyOf" : [ {"$ref" : "#/$defs/T2"},
+                                           { "additionalProperties" : { "const" : 33 } }
+                                ]
+                   }
+                },
+                {  "$ref" : "#/$defs/A3",
+                   "prefixItems" : [ {} ],
+                   "items" : { "anyOf" : [ {"$ref" : "#/$defs/T3"},
+                                           { "additionalProperties" : { "const" : 33 } }
+                                ]
+                   }
+                }
+            ],
+            "oneOf" : [
+              { "prefixItems" : [ {"$ref" : "#/$defs/T1"} ],
+                "minItems" : 1,
+                "contains" : {"$ref" : "#/$defs/T1"}
+              },
+              { "prefixItems" : [ {"$ref" : "#/$defs/T2"} ],
+                "minItems" : 1,
+                "contains" : {"$ref" : "#/$defs/T2"}
+              },
+              { "prefixItems" : [ {"$ref" : "#/$defs/T3"} ],
+                "minItems" : 1,
+                "contains" : {"$ref" : "#/$defs/T3"}
+              }
+            ]
+      }
+    }
+}

@@ -1,0 +1,126 @@
+{
+    "$defs" : {
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "prefixItems" : [
+                                {
+                                    "type" : "integer"
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    true
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "$ref" : "#/$defs/exEPtest1"
+                                }
+                            ]
+                        },
+                        {
+                            "items" : {
+                                "anyOf" : [
+                                    true,
+                                    {
+                                        "$ref" : "#/$defs/modern_3"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "description" : "Testing exEP"
+                                },
+                                {
+                                    "$ref" : "#/$defs/exEPtest2"
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    true,
+                                    {
+                                        "$ref" : "#/$defs/modern_3"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtest1" : {
+            "$ref" : "#/$defs/modern_1"
+        },
+        "exEPtest2" : {
+            "prefixItems" : [
+                {
+                    "type" : "string"
+                },
+                {
+                    "type" : "string"
+                }
+            ],
+            "contains" : true
+        },
+        "modern_3" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "type" : "object"
+                        },
+                        {
+                            "additionalProperties" : false
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtest3" : {
+            "anyOf" : [
+                {
+                    "$ref" : "#/$defs/exEPtest1"
+                },
+                {
+                    "$ref" : "#/$defs/exEPtest2"
+                }
+            ]
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_2"
+}

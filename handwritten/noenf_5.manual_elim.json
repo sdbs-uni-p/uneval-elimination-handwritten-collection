@@ -1,0 +1,61 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "items" : { "$ref" : "#/$defs/noenf" },
+    "$defs" : {
+      "RA1" : { "required" : ["a1"] },
+      "RA2" : { "required" : ["a2"] },
+      "RA3" : { "required" : ["a3"] },
+      "E2All" : { "prefixItems" : [ {"$ref" : "#/$defs/RA2"} ],
+                  "minItems" : 1,
+                  "contains" : true
+      },
+      "E12A1" : { "prefixItems" : [ {"$ref" : "#/$defs/RA1"}, {"$ref" : "#/$defs/RA2"} ],
+                  "minItems" : 1,
+                  "contains" : {"$ref" : "#/$defs/RA1"}
+      },
+      "E3A13" : { "prefixItems" : [ {"$ref" : "#/$defs/RA3"} ],
+                  "minItems" : 1,
+                  "contains" : { "anyOf" : [ {"$ref" : "#/$defs/RA1"}, {"$ref" : "#/$defs/RA3"} ] }
+      },
+      "noenf" : {
+            "type" : "array",
+            "anyOf" : [
+                { "allOf" : [
+                              { "$ref" : "#/$defs/E2All" }
+                  ]
+                },
+                { "allOf" : [
+                              { "$ref" : "#/$defs/E12A1" }
+                  ],
+                  "prefixItems" : [ {}, {} ],
+                  "items" : { "anyOf" : [ { "$ref" : "#/$defs/RA1"},
+                                          { "additionalProperties" : { "const" : 33 } }
+                               ]
+                   }
+                },
+                { "allOf" : [
+                              { "$ref" : "#/$defs/E3A13" }
+                  ],
+                  "prefixItems" : [ {} ],
+                  "items" : { "anyOf" : [ { "$ref" : "#/$defs/RA1"},
+                                          { "$ref" : "#/$defs/RA3"},
+                                          { "additionalProperties" : { "const" : 33 } }
+                               ]
+                   }
+                },
+                { "allOf" : [
+                              { "$ref" : "#/$defs/E12A1" },
+                              { "$ref" : "#/$defs/E3A13" }
+                  ],
+                  "prefixItems" : [ {}, {} ],
+                  "items" : { "anyOf" : [ { "$ref" : "#/$defs/RA1"},
+                                          { "$ref" : "#/$defs/RA3" },
+                                          { "additionalProperties" : { "const" : 33 } }
+                               ]
+                   }
+                }
+            ]
+      }
+    }
+}

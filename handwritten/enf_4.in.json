@@ -1,0 +1,54 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "unevaluatedItems" : { "$ref" : "#/$defs/enf1" },
+    "$defs" : {
+      "evalIN" : {
+            "type" : "array",
+            "allOf" : [
+              { "prefixItems" : [ {"type" : "integer"} ] },
+              { "prefixItems" : [ {}, {"type" : "null"} ] }
+            ]
+      },
+      "evalI_S" : {
+            "type" : "array",
+            "allOf" : [
+              { "prefixItems" : [ {"type" : "integer"} ] },
+              { "prefixItems" : [ {}, {}, {"type" : "string"} ] }
+            ]
+      },
+      "evalS_I" : {
+            "type" : "array",
+            "prefixItems" : [
+                           { "type" : "string"}, {}, { "type" : "integer"}
+            ]
+      },
+      "evalaIbS" :   { "type" : "object",
+                      "properties" : { "a" : {"type" : "integer" },
+                                       "b" : {"type" : "string" }
+                      },
+                      "required" : ["a","b"]
+
+      },
+      "enf1" : {
+                "allOf" : [
+                    { "anyOf" : [
+                         { "type" : "array",
+                           "not" : { "$ref": "#/$defs/evalI_S" }
+                         },
+                         { "$ref": "#/$defs/evalIN" },
+                         { "$ref": "#/$defs/evalI_S" }
+                      ]
+                    },
+                    { "anyOf" : [
+                         { "type" : "array", "unevaluatedItems" : {"type":"boolean"} },
+                         { "type" : "array", "prefixItems" : [{"const" : 1}] },
+                         { "type" : "array", "prefixItems" : [{"const" : "a"}, {"const" : 2}] }
+                      ]
+                    }
+                ],
+                "unevaluatedItems" : { "type" : "array", "maxItems" : 0},
+                "unevaluatedProperties" : { "type" : "object", "maxProperties" : 0 }
+      }
+    }
+}

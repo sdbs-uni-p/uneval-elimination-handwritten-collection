@@ -1,0 +1,45 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "unevaluatedItems" : { "$ref" : "#/$defs/noenf" },
+    "$defs" : {
+      "RA1" : { "required" : ["a1"] },
+      "RA2" : { "required" : ["a2"] },
+      "RB1" : { "required" : ["b1"] },
+      "RB2" : { "required" : ["b2"] },
+      "EA1" : { "prefixItems" : [ {"$ref" : "#/$defs/RA1"} ],
+                  "minItems" : 1,
+                  "contains" : {"$ref" : "#/$defs/RA1"}
+      },
+      "EA2" : { "prefixItems" : [ {"$ref" : "#/$defs/RA2"} ],
+                  "minItems" : 1,
+                  "contains" : {"$ref" : "#/$defs/RA2"}
+      },
+      "EB1" : { "prefixItems" : [ {"$ref" : "#/$defs/RB1"} ],
+                  "minItems" : 1,
+                  "contains" : {"$ref" : "#/$defs/RB1"}
+      },
+      "EB2" : { "prefixItems" : [ {"$ref" : "#/$defs/RB2"} ],
+                  "minItems" : 1,
+                  "contains" : {"$ref" : "#/$defs/RB2"}
+      },
+      "noenf" : {
+            "type" : "array",
+            "allOf" : [
+                { "anyOf" : [
+                              { "$ref" : "#/$defs/EA1"
+                              },
+                              { "$ref" : "#/$defs/EA2"
+                              }
+                ]},
+                { "anyOf" : [
+                              { "$ref" : "#/$defs/EB1"
+                              },
+                              { "$ref" : "#/$defs/EB2"
+                              }
+                ]}
+            ],
+            "unevaluatedItems" : { "additionalProperties" : { "const" : 33 } }
+      }
+    }
+}

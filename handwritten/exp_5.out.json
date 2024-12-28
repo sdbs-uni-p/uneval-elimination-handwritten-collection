@@ -1,0 +1,54 @@
+{
+    "$defs" : {
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Testing exEP",
+                            "allOf" : [
+                                {
+                                    "$ref" : "#/$defs/exEPtest1"
+                                },
+                                {
+                                    "$ref" : "#/$defs/exEPtest2"
+                                }
+                            ]
+                        },
+                        {
+                            "patternProperties" : {
+                                "^a$" : true,
+                                "b" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "object",
+                                "properties" : {
+                                    "c" : true
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtest1" : {
+            "properties" : {
+                "a" : true
+            },
+            "required" : [
+                "c"
+            ]
+        },
+        "exEPtest2" : {
+            "patternProperties" : {
+                "b" : {
+                    "properties" : {
+                        "c" : true
+                    }
+                }
+            }
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_1"
+}

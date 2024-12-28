@@ -1,0 +1,24 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Nesting",
+    "type" : "array",
+    "oneOf" : [   {  "anyOf" : [ { "prefixItems" : [ { "pattern" : "a" } ] },
+                                 { "prefixItems" : [ {}, { "pattern" : "A" } ] }
+                     ],
+                     "unevaluatedItems" : { "const" : "aa" },
+                     "minItem" : 1
+                   },
+                   {  "anyOf" : [ { "prefixItems" : [ { "pattern" : "b" } ] },
+                                  { "prefixItems" : [ {}, { "pattern" : "B" } ] }
+                      ],
+                      "unevaluatedItems" : { "const" : "bb" },
+                      "minItem" : 1
+                   },
+                   {  "anyOf" : [ { "prefixItems" : [ { "pattern" : "c" } ] },
+                                  { "prefixItems" : [ {}, { "pattern" : "C" } ] }
+                     ],
+                      "unevaluatedItems" : { "const" : "cc" }
+                   }
+     ],
+    "unevaluatedItems" : { "type" : "number" }
+}

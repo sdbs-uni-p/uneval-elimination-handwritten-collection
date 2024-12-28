@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Nesting",
+    "type" : "object",
+    "patternProperties" : { "ppp" :
+      { "anyOf" : [   {  "anyOf" : [ {"properties" : { "b" : { "$ref" : "#" }} },
+                                     {"properties" : { "o" : { "$ref" : "#" }} }
+                         ],
+                         "unevaluatedProperties" : { "type" : "boolean" }
+                       },
+                       {  "anyOf" : [ {"properties" : { "n" : { "$ref" : "#" }} },
+                                      {"properties" : { "u" : { "$ref" : "#" }} }
+                          ]
+                       }
+        ],
+        "unevaluatedProperties" : { "type" : "null" }
+      }
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "$defs" : {
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Testing exEP",
+                            "anyOf" : [
+                                {
+                                    "$ref" : "#/$defs/exEPtest1"
+                                },
+                                {
+                                    "$ref" : "#/$defs/exEPtest2"
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/modern_2"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "type" : "object"
+                        },
+                        {
+                            "additionalProperties" : false
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtest1" : {
+            "prefixItems" : [
+                {
+                    "type" : "integer"
+                },
+                true,
+                true
+            ],
+            "minItems" : 2
+        },
+        "exEPtest2" : {
+            "prefixItems" : [
+                true,
+                true,
+                {
+                    "type" : "string"
+                }
+            ],
+            "maxItems" : 4
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_1"
+}

@@ -1,0 +1,54 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "oneOf" : [
+             { "allOf" : [
+                   { "oneOf" : [
+                         { "$ref": "#/$defs/exEPtestAB" },
+                         { "$ref": "#/$defs/exEPtestAD" }
+                     ]
+                   },
+                   { "oneOf" : [
+                         {  "patternProperties" : { "b" : {"type" : "integer"}},
+                            "properties" : { "d" : {"type" : "null"}}
+                         },
+                         { "$ref": "#/$defs/exEPtestABD" }
+                     ]
+                   }
+               ]
+             },
+             { "allOf" : [
+                   { "anyOf" : [
+                         { "$ref": "#/$defs/exEPtestAB" },
+                         { "$ref": "#/$defs/exEPtestBD" }
+                     ]
+                   },
+                   { "oneOf" : [
+                         { "properties" : { "a" : {"type" : "null"}, "d" : {"type" : "boolean"} } },
+                         { "$ref": "#/$defs/exEPtestABD" }
+                     ]
+                   }
+               ]
+             }
+    ],
+    "unevaluatedProperties" : { "type" : "object", "properties" : { "c" : {"type" : "integer"} }},
+    "$defs" : {
+       "exEPtestAB" : {
+             "properties" : { "a" : {"type" : "string"} },
+             "patternProperties" : { "b" : {"type" : "integer"} }
+        },
+      "exEPtestAD" : {
+            "properties" : { "a" : {"type" : "string"},
+                             "d" : {"type" : "integer"} }
+       },
+      "exEPtestABD" : {
+            "properties" : { "a" : {"type" : "string"},
+                             "d" : {"type" : "integer"} },
+            "patternProperties" : { "b" : {"type" : "integer"} }
+       },
+      "exEPtestBD" : {
+            "properties" : { "d" : {"type" : "string"} },
+            "patternProperties" : { "b" : {"type" : "integer"} }
+       }
+    }
+}

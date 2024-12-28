@@ -1,0 +1,229 @@
+{
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$defs" : {
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Nesting",
+                            "type" : "array",
+                            "oneOf" : [
+                                {
+                                    "$ref" : "#/$defs/modern_2"
+                                },
+                                {
+                                    "$ref" : "#/$defs/modern_3"
+                                },
+                                {
+                                    "$ref" : "#/$defs/modern_4"
+                                }
+                            ]
+                        },
+                        {
+                            "items" : {
+                                "anyOf" : [
+                                    true,
+                                    {
+                                        "type" : "number"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "prefixItems" : [
+                                        {
+                                            "pattern" : "a"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "minItem" : 1
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "const" : "aa"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        {
+                                            "pattern" : "A"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "minItem" : 1
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "const" : "aa"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_3" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "prefixItems" : [
+                                        {
+                                            "pattern" : "b"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "minItem" : 1
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "const" : "bb"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "prefixItems" : [
+                                        true,
+                                        {
+                                            "pattern" : "B"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "minItem" : 1
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "const" : "bb"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_4" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "prefixItems" : [
+                                {
+                                    "pattern" : "c"
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "const" : "cc"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "prefixItems" : [
+                                true,
+                                {
+                                    "pattern" : "C"
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "const" : "cc"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "$ref" : "#/$defs/modern_1"
+}

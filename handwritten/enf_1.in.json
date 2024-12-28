@@ -1,0 +1,60 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "unevaluatedItems" : { "$ref" : "#/$defs/enf1" },
+    "$defs" : {
+      "eval3Its1" : {
+            "type" : "array",
+            "allOf" : [
+              { "prefixItems" : [ {"type" : "integer"} ] },
+              { "prefixItems" : [ {}, {}, {"type" : "string"} ] }
+            ]
+      },
+      "eval3Its2" : {
+            "type" : "array",
+            "prefixItems" : [
+                           { "type" : "string"}, {}, { "type" : "integer"}
+            ]
+      },
+      "evalAB1" :   { "type" : "object",
+                      "properties" : { "a" : {"type" : "integer" },
+                                       "b" : {"type" : "string" }
+                      },
+                      "required" : ["a","b"]
+
+      },
+      "enf1" : {
+                "anyOf" : [
+                         { "$ref": "#/$defs/eval3Its1" },
+                         { "type" : "array",
+                           "not" : { "$ref": "#/$defs/eval3Its2" }
+                         },
+                         { "$ref": "#/$defs/evalAB1" },
+                         { "type" : "array",
+                           "prefixItems" : [ {"type" : "null"}, {}, {"type" : "boolean"} ]
+                         },
+                         { "type" : "object", "unevaluatedProperties" : {"type":"boolean"}
+                         },
+                         { "type" : "array",
+                           "allOf" : [
+                               { "prefixItems" : [ {"type" : "boolean"} ] },
+                               { "prefixItems" : [ {}, {}, {"type" : "null"} ] }
+                           ]
+                         },
+                         { "type" : "array", "unevaluatedItems" : {"type":"boolean"} },
+                         { "type" : "object",
+                           "properties" : { "a" : {"type" : "null" } , "b" : {"type":"null"} }
+                         },
+                         { "type" : "array", "prefixItems" : [{"const" : "a"}], "contains" : true },
+                         { "type" : "object",
+                           "allOf" : [
+                               { "properties" : { "a" : {"type" : "string" } } },
+                               { "properties" : { "b" : {"type" : "string"} } }
+                           ]
+                         }
+                ],
+                "unevaluatedItems" : { "type" : "array", "maxItems" : 0},
+                "unevaluatedProperties" : { "type" : "object", "maxProperties" : 0 }
+      }
+    }
+}

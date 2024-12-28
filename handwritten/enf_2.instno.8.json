@@ -1,0 +1,12 @@
+[ [ 1,2,"a",[]],
+  [ [], []],
+  { "a":1, "b":"aa", "z":{}},
+  [ null, null, true, [] ],
+  { "z":true, "zz":false },
+  [ true, null,null, [] ],
+  [ true, false, true, false ],
+  { "a":null, "b":null, "z" : {"a": 1}},
+  [ "a", 1, 1, 1, 1 ],
+  { "a":1, "b":"aa", "z":{}}
+]
+

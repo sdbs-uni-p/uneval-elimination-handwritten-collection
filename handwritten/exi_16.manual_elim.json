@@ -1,0 +1,51 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "oneOf" : [
+             { "allOf" : [
+                   { "oneOf" : [
+                         { "$ref": "#/$defs/exEPtestAB" },
+                         { "$ref": "#/$defs/exEPtestAD" }
+                     ]
+                   },
+                   { "oneOf" : [
+                         {  "prefixItems" : [ {"type" : "integer"}, {"type" : "null"} ]
+                         },
+                         { "$ref": "#/$defs/exEPtestABD" }
+                     ]
+                   }
+               ]
+             },
+             { "allOf" : [
+                   { "anyOf" : [
+                         { "$ref": "#/$defs/exEPtestAB" },
+                         { "$ref": "#/$defs/exEPtestBD" }
+                     ]
+                   },
+                   { "oneOf" : [
+                         { "prefixItems" : [ {"type" : "null"}, {"type" : "boolean"} ] },
+                         { "$ref": "#/$defs/exEPtestABD" }
+                     ]
+                   }
+               ]
+             }
+    ],
+    "items" : { "type" : "object", "additionalProperties" : {"type" : "integer"} },
+    "prefixItems" : [ {}, {}, {}, {} ],
+    "$defs" : {
+       "exEPtestAB" : {
+             "prefixItems" : [ {"type" : "string"}, {"type" : "integer"} ]
+        },
+      "exEPtestAD" : {
+            "prefixItems" : [ {"type" : "string"}, {}, {}, {"type" : "integer"} ]
+       },
+      "exEPtestABD" : {
+            "allOf" : [ { "prefixItems" : [ {"type" : "string"}, {"type" : "integer"} ] },
+                        { "prefixItems" : [ {}, {}, {}, {"type" : "integer"} ] }
+            ]
+       },
+      "exEPtestBD" : {
+            "prefixItems" : [ {}, {"type" : "integer"}, {}, {"type" : "integer"} ]
+       }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "allOf" : [
+         { "$ref": "#/$defs/exEPtest1" },
+         { "$ref": "#/$defs/exEPtest2" }
+    ],
+    "additionalProperties" : { "type" : "object", "properties" : { "c" : {} }},
+    "patternProperties" : { "^a$" : {}, "b" : {}},
+    "$defs" : {
+       "exEPtest1" : {
+            "properties" : {
+                          "a" : {}
+             },
+             "required" : ["c"]
+       },
+       "exEPtest2" : {
+            "patternProperties" : {
+                          "b" : { "properties" : { "c" : {} } }
+             }
+       }
+    }
+}

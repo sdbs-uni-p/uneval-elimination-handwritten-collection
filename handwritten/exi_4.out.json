@@ -1,0 +1,45 @@
+{
+    "$defs" : {
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Testing exEP",
+                            "$ref" : "#/$defs/exEPtest"
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "string"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtest" : {
+            "prefixItems" : [
+                true,
+                {
+                    "prefixItems" : [
+                        {
+                            "type" : "string"
+                        }
+                    ]
+                }
+            ],
+            "minItems" : 2
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_1"
+}

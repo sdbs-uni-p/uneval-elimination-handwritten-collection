@@ -1,0 +1,280 @@
+{
+    "$defs" : {
+        "modern_5" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "prefixItems" : [
+                                {
+                                    "type" : "null"
+                                },
+                                true,
+                                true,
+                                {
+                                    "type" : "integer"
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "string"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_6" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "$ref" : "#/$defs/exEPtestABD"
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "string"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_7" : {
+            "items" : {
+                "type" : "integer"
+            }
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "prefixItems" : [
+                                {
+                                    "type" : "integer"
+                                },
+                                true,
+                                true,
+                                {
+                                    "type" : "null"
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "string"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_4" : {
+            "items" : {
+                "type" : "integer"
+            }
+        },
+        "exEPtestBD" : {
+            "prefixItems" : [
+                true,
+                {
+                    "type" : "integer"
+                },
+                true,
+                {
+                    "type" : "integer"
+                }
+            ]
+        },
+        "exEPtestABD" : {
+            "allOf" : [
+                {
+                    "prefixItems" : [
+                        {
+                            "type" : "string"
+                        },
+                        {
+                            "type" : "integer"
+                        }
+                    ]
+                },
+                {
+                    "prefixItems" : [
+                        true,
+                        true,
+                        true,
+                        {
+                            "type" : "integer"
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtestAB" : {
+            "prefixItems" : [
+                {
+                    "type" : "string"
+                },
+                {
+                    "type" : "integer"
+                }
+            ]
+        },
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Testing exEP",
+                            "anyOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "anyOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestAB"
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestAD"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "anyOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/modern_2"
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/modern_3"
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/modern_4"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "anyOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestAB"
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestBD"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "oneOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/modern_5"
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/modern_6"
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/modern_7"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "items" : {
+                                "anyOf" : [
+                                    true,
+                                    {
+                                        "type" : "object",
+                                        "additionalProperties" : {
+                                            "type" : "integer"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtestAD" : {
+            "prefixItems" : [
+                {
+                    "type" : "string"
+                },
+                true,
+                true,
+                {
+                    "type" : "integer"
+                }
+            ]
+        },
+        "modern_3" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "$ref" : "#/$defs/exEPtestABD"
+                        },
+                        {
+                            "prefixItems" : [
+                                true,
+                                true,
+                                true,
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "type" : "string"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_1"
+}

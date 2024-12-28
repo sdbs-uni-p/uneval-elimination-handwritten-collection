@@ -1,0 +1,52 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "unevaluatedItems" : { "$ref" : "#/$defs/enf1" },
+    "$defs" : {
+      "eval3Its1" : {
+            "allOf" : [
+              { "prefixItems" : [ {"type" : "integer"} ] },
+              { "prefixItems" : [ {}, {}, {"type" : "string"} ] }
+            ]
+      },
+      "eval3Its2" : {
+            "prefixItems" : [
+                           { "type" : "string"}, {}, { "type" : "integer"}
+            ]
+      },
+      "evalAB1" :   { "properties" : { "a" : {"type" : "integer" },
+                                       "b" : {"type" : "string" }
+                      },
+                      "required" : ["a","b"]
+
+      },
+      "enf1" : {
+                "anyOf" : [
+                         { "$ref": "#/$defs/eval3Its1" },
+                         { "not" : { "$ref": "#/$defs/eval3Its2" }
+                         },
+                         { "$ref": "#/$defs/evalAB1" },
+                         { "prefixItems" : [ {"type" : "null"}, {}, {"type" : "boolean"} ]
+                         },
+                         { "unevaluatedProperties" : {"type":"boolean"}
+                         },
+                         { "allOf" : [
+                               { "prefixItems" : [ {"type" : "boolean"} ] },
+                               { "prefixItems" : [ {}, {}, {"type" : "null"} ] }
+                           ]
+                         },
+                         { "unevaluatedItems" : {"type":"boolean"} },
+                         { "properties" : { "a" : {"type" : "null" } , "b" : {"type":"null"} }
+                         },
+                         { "prefixItems" : [{"const" : "a"}], "contains" : true },
+                         { "allOf" : [
+                               { "properties" : { "a" : {"type" : "string" } } },
+                               { "properties" : { "b" : {"type" : "string"} } }
+                           ]
+                         }
+                ],
+                "unevaluatedItems" : { "type" : "array", "maxItems" : 0},
+                "unevaluatedProperties" : { "type" : "object", "maxProperties" : 0 }
+      }
+    }
+}

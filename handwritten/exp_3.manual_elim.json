@@ -1,0 +1,15 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP: required has no effect",
+    "$ref": "#/$defs/exEPtest",
+    "properties" : { "a" : {}, "b" : {}},
+    "additionalProperties" : { "type" : "string"},
+    "$defs" : {
+       "exEPtest" : { "properties" : {
+                          "a" : true,
+                          "b" : false
+                       },
+                       "required" : ["c"]
+       }
+    }
+}

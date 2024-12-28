@@ -1,0 +1,256 @@
+{
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$defs" : {
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Nesting",
+                            "type" : "object",
+                            "anyOf" : [
+                                {
+                                    "$ref" : "#/$defs/modern_2"
+                                },
+                                {
+                                    "$ref" : "#/$defs/modern_3"
+                                },
+                                {
+                                    "$ref" : "#/$defs/modern_4"
+                                }
+                            ]
+                        },
+                        {
+                            "patternProperties" : {
+                                ".*" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "number"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "properties" : {
+                                "b" : {
+                                    "$ref" : "#"
+                                }
+                            }
+                        },
+                        {
+                            "patternProperties" : {
+                                "^b$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "boolean"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "properties" : {
+                                "o" : {
+                                    "$ref" : "#"
+                                }
+                            }
+                        },
+                        {
+                            "patternProperties" : {
+                                "^o$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "boolean"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "properties" : {
+                                        "b" : {
+                                            "$ref" : "#"
+                                        }
+                                    }
+                                },
+                                {
+                                    "properties" : {
+                                        "o" : {
+                                            "$ref" : "#"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "patternProperties" : {
+                                "^b$" : true,
+                                "^o$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "boolean"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_3" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "properties" : {
+                                "n" : {
+                                    "$ref" : "#"
+                                }
+                            }
+                        },
+                        {
+                            "patternProperties" : {
+                                "^n$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "null"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "properties" : {
+                                "u" : {
+                                    "$ref" : "#"
+                                }
+                            }
+                        },
+                        {
+                            "patternProperties" : {
+                                "^u$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "null"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "properties" : {
+                                        "n" : {
+                                            "$ref" : "#"
+                                        }
+                                    }
+                                },
+                                {
+                                    "properties" : {
+                                        "u" : {
+                                            "$ref" : "#"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "patternProperties" : {
+                                "^n$" : true,
+                                "^u$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "null"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_4" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "properties" : {
+                                "s" : {
+                                    "$ref" : "#"
+                                }
+                            }
+                        },
+                        {
+                            "patternProperties" : {
+                                "^s$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "string"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "properties" : {
+                                "t" : {
+                                    "$ref" : "#"
+                                }
+                            }
+                        },
+                        {
+                            "patternProperties" : {
+                                "^t$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "string"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "properties" : {
+                                        "s" : {
+                                            "$ref" : "#"
+                                        }
+                                    }
+                                },
+                                {
+                                    "properties" : {
+                                        "t" : {
+                                            "$ref" : "#"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "patternProperties" : {
+                                "^s$" : true,
+                                "^t$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "string"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "$ref" : "#/$defs/modern_1"
+}

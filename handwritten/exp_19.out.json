@@ -1,0 +1,239 @@
+{
+    "$defs" : {
+        "modern_5" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "$ref" : "#/$defs/exEPtestBD"
+                        },
+                        {
+                            "patternProperties" : {
+                                "^d$" : true,
+                                "b" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "string"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_6" : {
+            "additionalProperties" : {
+                "type" : "integer"
+            }
+        },
+        "modern_7" : {
+            "additionalProperties" : {
+                "type" : "integer"
+            }
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "$ref" : "#/$defs/exEPtestAB"
+                        },
+                        {
+                            "patternProperties" : {
+                                "^a$" : true,
+                                "b" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : [
+                                    "string",
+                                    "boolean"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_4" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "$ref" : "#/$defs/exEPtestAB"
+                        },
+                        {
+                            "patternProperties" : {
+                                "^a$" : true,
+                                "b" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "string"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtestBD" : {
+            "properties" : {
+                "d" : {
+                    "type" : "string"
+                }
+            },
+            "patternProperties" : {
+                "b" : {
+                    "type" : "integer"
+                }
+            }
+        },
+        "exEPtestABD" : {
+            "properties" : {
+                "a" : {
+                    "type" : [
+                        "string",
+                        "integer"
+                    ]
+                },
+                "d" : {
+                    "type" : "integer"
+                }
+            },
+            "patternProperties" : {
+                "b" : {
+                    "type" : "integer"
+                }
+            }
+        },
+        "exEPtestAB" : {
+            "properties" : {
+                "a" : {
+                    "type" : [
+                        "string",
+                        "integer"
+                    ]
+                }
+            },
+            "patternProperties" : {
+                "b" : {
+                    "type" : "integer"
+                }
+            }
+        },
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Testing exEP",
+                            "anyOf" : [
+                                {
+                                    "allOf" : [
+                                        {
+                                            "anyOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/modern_2"
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/modern_3"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "anyOf" : [
+                                                {
+                                                    "patternProperties" : {
+                                                        "b" : {
+                                                            "type" : "integer"
+                                                        }
+                                                    },
+                                                    "properties" : {
+                                                        "d" : {
+                                                            "type" : "null"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "properties" : {
+                                                        "d" : {
+                                                            "type" : "boolean"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "oneOf" : [
+                                                {
+                                                    "$ref" : "#/$defs/modern_4"
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/modern_5"
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/modern_6"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "anyOf" : [
+                                                {
+                                                    "properties" : {
+                                                        "a" : {
+                                                            "type" : "null"
+                                                        },
+                                                        "d" : {
+                                                            "type" : "boolean"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/exEPtestABD"
+                                                },
+                                                {
+                                                    "$ref" : "#/$defs/modern_7"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "patternProperties" : {
+                                ".*" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "object",
+                                "properties" : {
+                                    "c" : {
+                                        "type" : "integer"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "exEPtestAD" : {
+            "properties" : {
+                "a" : {
+                    "type" : "string"
+                },
+                "d" : {
+                    "type" : "integer"
+                }
+            }
+        },
+        "modern_3" : {
+            "additionalProperties" : {
+                "type" : "integer"
+            }
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_1"
+}

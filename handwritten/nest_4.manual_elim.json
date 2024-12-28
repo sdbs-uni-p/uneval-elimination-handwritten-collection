@@ -1,0 +1,34 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Nesting",
+    "type" : "object",
+    "patternProperties" : { "ppp" :
+      { "anyOf" : [
+                   {  "anyOf" : [ { "properties" : { "b" : { "$ref" : "#" }},
+                                    "additionalProperties" : { "type" : "boolean" }
+                                   },
+                                   { "properties" : { "o" : { "$ref" : "#" }},
+                                     "additionalProperties" : { "type" : "boolean" }
+                                   },
+                                   { "properties" : { "b" : { "$ref" : "#" },
+                                                      "o" : { "$ref" : "#" }},
+                                     "additionalProperties" : { "type" : "boolean" }
+                                   }
+                      ]
+                    },
+                    {  "anyOf" : [ { "properties" : { "n" : { "$ref" : "#" }},
+                                     "additionalProperties" : { "type" : "null" }
+                                   },
+                                    { "properties" : { "u" : { "$ref" : "#" }},
+                                      "additionalProperties" : { "type" : "null" }
+                                    },
+                                    { "properties" : { "n" : { "$ref" : "#" },
+                                                       "u" : { "$ref" : "#" }},
+                                      "additionalProperties" : { "type" : "null" }
+                                    }
+                        ]
+                    }
+                   ]
+      }
+    }
+}

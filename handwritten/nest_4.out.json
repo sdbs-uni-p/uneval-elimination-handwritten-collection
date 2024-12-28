@@ -1,0 +1,173 @@
+{
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$defs" : {
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "$ref" : "#/$defs/modern_2"
+                        },
+                        {
+                            "patternProperties" : {
+                                ".*" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "null"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "properties" : {
+                                "n" : {
+                                    "$ref" : "#"
+                                }
+                            }
+                        },
+                        {
+                            "patternProperties" : {
+                                "^n$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "null"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "properties" : {
+                                "u" : {
+                                    "$ref" : "#"
+                                }
+                            }
+                        },
+                        {
+                            "patternProperties" : {
+                                "^u$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "null"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "properties" : {
+                                        "n" : {
+                                            "$ref" : "#"
+                                        }
+                                    }
+                                },
+                                {
+                                    "properties" : {
+                                        "u" : {
+                                            "$ref" : "#"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "patternProperties" : {
+                                "^n$" : true,
+                                "^u$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "null"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "properties" : {
+                                "b" : {
+                                    "$ref" : "#"
+                                }
+                            }
+                        },
+                        {
+                            "patternProperties" : {
+                                "^b$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "boolean"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "properties" : {
+                                "o" : {
+                                    "$ref" : "#"
+                                }
+                            }
+                        },
+                        {
+                            "patternProperties" : {
+                                "^o$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "boolean"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "properties" : {
+                                        "b" : {
+                                            "$ref" : "#"
+                                        }
+                                    }
+                                },
+                                {
+                                    "properties" : {
+                                        "o" : {
+                                            "$ref" : "#"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "patternProperties" : {
+                                "^b$" : true,
+                                "^o$" : true
+                            },
+                            "additionalProperties" : {
+                                "type" : "boolean"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "description" : "Nesting",
+    "type" : "object",
+    "patternProperties" : {
+        "ppp" : {
+            "$ref" : "#/$defs/modern_1"
+        }
+    }
+}

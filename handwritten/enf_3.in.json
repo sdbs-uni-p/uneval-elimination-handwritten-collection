@@ -1,0 +1,53 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "unevaluatedItems" : { "$ref" : "#/$defs/enf1" },
+    "$defs" : {
+      "eval3Its1" : {
+            "type" : "array",
+            "allOf" : [
+              { "prefixItems" : [ {"type" : "integer"} ] },
+              { "prefixItems" : [ {}, {}, {"type" : "string"} ] }
+            ]
+      },
+      "eval3Its2" : {
+            "type" : "array",
+            "prefixItems" : [
+                           { "type" : "string"}, {}, { "type" : "integer"}
+            ]
+      },
+      "evalAB1" :   { "type" : "object",
+                      "properties" : { "a" : {"type" : "integer" },
+                                       "b" : {"type" : "string" }
+                      },
+                      "required" : ["a","b"]
+
+      },
+      "enf1" : {
+                "allOf" : [
+                    { "anyOf" : [
+                         { "type" : "array",
+                           "not" : { "$ref": "#/$defs/eval3Its2" }
+                         },
+                         { "$ref": "#/$defs/evalAB1" },
+                         { "type" : "object", "unevaluatedProperties" : {"type":"boolean"}
+                         }
+                      ]
+                    },
+                    { "anyOf" : [
+                         { "type" : "array", "unevaluatedItems" : {"type":"boolean"} },
+                         { "type" : "array", "prefixItems" : [{"const" : "a"}] },
+                         { "type" : "object",
+                           "allOf" : [
+                               { "properties" : { "c" : {"type" : "string" } } },
+                               { "properties" : { "d" : {"type" : "string"} } }
+                           ]
+                         }
+                      ]
+                    }
+                ],
+                "unevaluatedItems" : { "type" : "array", "maxItems" : 0},
+                "unevaluatedProperties" : { "type" : "object", "maxProperties" : 0 }
+      }
+    }
+}

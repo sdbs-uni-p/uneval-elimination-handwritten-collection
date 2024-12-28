@@ -1,0 +1,76 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Testing exEP",
+    "items" : { "$ref" : "#/$defs/enf1" },
+    "$defs" : {
+      "eval3Its1" : {
+            "allOf" : [
+              { "prefixItems" : [ {"type" : "integer"} ] },
+              { "prefixItems" : [ {}, {}, {"type" : "string"} ] }
+            ]
+      },
+      "eval3Its2" : {
+            "prefixItems" : [
+                           { "type" : "string"}, {}, { "type" : "integer"}
+            ]
+      },
+      "evalAB1" :   { "properties" : { "a" : {"type" : "integer" },
+                                       "b" : {"type" : "string" }
+                      },
+                      "required" : ["a","b"]
+
+      },
+      "enf1" : {
+                "anyOf" : [
+                         { "$ref": "#/$defs/eval3Its1",
+                            "prefixItems" : [ {}, {}, {} ],
+                            "items" : { "type" : "array", "maxItems" : 0 },
+                            "additionalProperties" : { "type" : "object", "maxProperties" : 0 }
+                         },
+                         { "not" : { "$ref": "#/$defs/eval3Its2" },
+                           "items" : { "type" : "array", "maxItems" : 0 },
+                           "additionalProperties" : { "type" : "object", "maxProperties" : 0 }
+                         },
+                         { "$ref": "#/$defs/evalAB1",
+                           "properties" : { "a" : { }, "b" : {} },
+                           "items" : { "type" : "array", "maxItems" : 0 },
+                           "additionalProperties" : { "type" : "object", "maxProperties" : 0 }
+                         },
+                         { "prefixItems" : [ {"type" : "null"}, {}, {"type" : "boolean"} ],
+                           "items" : { "type" : "array", "maxItems" : 0 },
+                           "additionalProperties" : { "type" : "object", "maxProperties" : 0 }
+                         },
+                         { "items" : { "type" : "array", "maxItems" : 0 },
+                           "additionalProperties" : {"type":"boolean"}
+                         },
+                         { "allOf" : [
+                               { "prefixItems" : [ {"type" : "boolean"} ] },
+                               { "prefixItems" : [ {}, {}, {"type" : "null"} ] }
+                           ],
+                           "prefixItems" : [ {}, {}, {} ],
+                           "items" : { "type" : "array", "maxItems" : 0 },
+                           "additionalProperties" : { "type" : "object", "maxProperties" : 0 }                           
+                         },
+                         { "items" : {"type":"boolean"},
+                           "additionalProperties" : { "type" : "object", "maxProperties" : 0 }
+                         },
+                         { "properties" : { "a" : {"type" : "null" } , "b" : {"type":"null"} },
+                           "items" : { "type" : "array", "maxItems" : 0 },
+                           "additionalProperties" : { "type" : "object", "maxProperties" : 0 }
+                         },
+                         { "prefixItems" : [{"const" : "a"}],
+                           "contains" : true,
+                           "additionalProperties" : { "type" : "object", "maxProperties" : 0 }
+                         },
+                         { "allOf" : [
+                               { "properties" : { "a" : {"type" : "string" } } },
+                               { "properties" : { "b" : {"type" : "string"} } }
+                           ],
+                           "properties" : { "a" : { }, "b" : {} },
+                           "items" : { "type" : "array", "maxItems" : 0 },
+                           "additionalProperties" : { "type" : "object", "maxProperties" : 0 }
+                         }
+                ]
+      }
+    }
+}

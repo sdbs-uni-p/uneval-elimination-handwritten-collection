@@ -1,0 +1,432 @@
+{
+    "$defs" : {
+        "T2" : {
+            "required" : [
+                "a2"
+            ]
+        },
+        "noenf" : {
+            "$ref" : "#/$defs/modern_1"
+        },
+        "modern_1" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "prefixItems" : [
+                                        {
+                                            "$ref" : "#/$defs/T1"
+                                        }
+                                    ],
+                                    "minItems" : 1,
+                                    "contains" : {
+                                        "$ref" : "#/$defs/T1"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    {
+                                        "$ref" : "#/$defs/T1"
+                                    },
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "prefixItems" : [
+                                        {
+                                            "$ref" : "#/$defs/T2"
+                                        }
+                                    ],
+                                    "minItems" : 1,
+                                    "contains" : {
+                                        "$ref" : "#/$defs/T2"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    {
+                                        "$ref" : "#/$defs/T2"
+                                    },
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "prefixItems" : [
+                                        {
+                                            "$ref" : "#/$defs/T3"
+                                        }
+                                    ],
+                                    "minItems" : 1,
+                                    "contains" : {
+                                        "$ref" : "#/$defs/T3"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    {
+                                        "$ref" : "#/$defs/T3"
+                                    },
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "$ref" : "#/$defs/T2"
+                                                }
+                                            ],
+                                            "minItems" : 1,
+                                            "contains" : {
+                                                "$ref" : "#/$defs/T2"
+                                            }
+                                        },
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "$ref" : "#/$defs/T3"
+                                                }
+                                            ],
+                                            "minItems" : 1,
+                                            "contains" : {
+                                                "$ref" : "#/$defs/T3"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    {
+                                        "anyOf" : [
+                                            {
+                                                "$ref" : "#/$defs/T2"
+                                            },
+                                            {
+                                                "$ref" : "#/$defs/T3"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "$ref" : "#/$defs/T1"
+                                                }
+                                            ],
+                                            "minItems" : 1,
+                                            "contains" : {
+                                                "$ref" : "#/$defs/T1"
+                                            }
+                                        },
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "$ref" : "#/$defs/T2"
+                                                }
+                                            ],
+                                            "minItems" : 1,
+                                            "contains" : {
+                                                "$ref" : "#/$defs/T2"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    {
+                                        "anyOf" : [
+                                            {
+                                                "$ref" : "#/$defs/T1"
+                                            },
+                                            {
+                                                "$ref" : "#/$defs/T2"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "$ref" : "#/$defs/T1"
+                                                }
+                                            ],
+                                            "minItems" : 1,
+                                            "contains" : {
+                                                "$ref" : "#/$defs/T1"
+                                            }
+                                        },
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "$ref" : "#/$defs/T3"
+                                                }
+                                            ],
+                                            "minItems" : 1,
+                                            "contains" : {
+                                                "$ref" : "#/$defs/T3"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    {
+                                        "anyOf" : [
+                                            {
+                                                "$ref" : "#/$defs/T1"
+                                            },
+                                            {
+                                                "$ref" : "#/$defs/T3"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "allOf" : [
+                        {
+                            "allOf" : [
+                                {
+                                    "type" : "array"
+                                },
+                                {
+                                    "allOf" : [
+                                        {
+                                            "prefixItems" : [
+                                                {
+                                                    "$ref" : "#/$defs/T1"
+                                                }
+                                            ],
+                                            "minItems" : 1,
+                                            "contains" : {
+                                                "$ref" : "#/$defs/T1"
+                                            }
+                                        },
+                                        {
+                                            "allOf" : [
+                                                {
+                                                    "prefixItems" : [
+                                                        {
+                                                            "$ref" : "#/$defs/T2"
+                                                        }
+                                                    ],
+                                                    "minItems" : 1,
+                                                    "contains" : {
+                                                        "$ref" : "#/$defs/T2"
+                                                    }
+                                                },
+                                                {
+                                                    "prefixItems" : [
+                                                        {
+                                                            "$ref" : "#/$defs/T3"
+                                                        }
+                                                    ],
+                                                    "minItems" : 1,
+                                                    "contains" : {
+                                                        "$ref" : "#/$defs/T3"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefixItems" : [
+                                true
+                            ],
+                            "items" : {
+                                "anyOf" : [
+                                    {
+                                        "anyOf" : [
+                                            {
+                                                "$ref" : "#/$defs/T1"
+                                            },
+                                            {
+                                                "anyOf" : [
+                                                    {
+                                                        "$ref" : "#/$defs/T2"
+                                                    },
+                                                    {
+                                                        "$ref" : "#/$defs/T3"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "additionalProperties" : {
+                                            "const" : 33
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "T1" : {
+            "required" : [
+                "a1"
+            ]
+        },
+        "modern_2" : {
+            "anyOf" : [
+                {
+                    "allOf" : [
+                        {
+                            "description" : "Testing exEP"
+                        },
+                        {
+                            "items" : {
+                                "anyOf" : [
+                                    false,
+                                    {
+                                        "$ref" : "#/$defs/noenf"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "T3" : {
+            "required" : [
+                "a3"
+            ]
+        }
+    },
+    "$schema" : "https://json-schema.org/draft/2020-12/schema",
+    "$ref" : "#/$defs/modern_2"
+}
